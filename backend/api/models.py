@@ -8,6 +8,21 @@ class Profile(models.Model):
     age = models.IntegerField(default=25)
     occupation = models.CharField(max_length=200)
 
+class Movie(models.Model):
+    id = models.IntegerField(primary_key=True)
+    title = models.CharField(max_length=200)
+    genres = models.CharField(max_length=500)
+
+    @property
+    def genres_array(self):
+        return self.genres.strip().split('|')
+
+class Rating(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    rate = models.IntegerField(default=1)
+    timestamp = models.IntegerField(default=0)
+
 
 #  wrapper for create user Profile
 def create_profile(**kwargs):
@@ -28,11 +43,4 @@ def create_profile(**kwargs):
     return profile
 
 
-class Movie(models.Model):
-    id = models.IntegerField(primary_key=True)
-    title = models.CharField(max_length=200)
-    genres = models.CharField(max_length=500)
 
-    @property
-    def genres_array(self):
-        return self.genres.strip().split('|')
