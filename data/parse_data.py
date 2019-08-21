@@ -34,7 +34,7 @@ def create_users(num_users):
 
     response = requests.post(API_URL + 'auth/signup-many/', data=json.dumps(request_data), headers=headers)
     # print(response)
-    print(request_data)
+    # print(request_data)
     # print(response.text)
 
 
