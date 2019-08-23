@@ -9,6 +9,7 @@
           :genres="card.genres"
           :rating="card.rating"
           :view-cnt="card.viewCnt"
+          :view_users="card.view_users"
         />
       </v-flex>
       <v-pagination v-if="maxPages > 1" v-model="page" :length="maxPages" />

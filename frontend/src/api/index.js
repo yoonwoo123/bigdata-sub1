@@ -8,4 +8,9 @@ export default {
       params,
     })
   },
+  getusers(params) {
+    return axios.get(`${apiUrl}/profiles/`, {
+      params,
+    })
+  }
 }

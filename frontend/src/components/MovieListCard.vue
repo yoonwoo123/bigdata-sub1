@@ -30,6 +30,7 @@
                 <v-layout justify-center>
                   <v-icon color="black">mdi-eye</v-icon>
                   <div class="grey--text ml-4">{{ viewCnt }}</div>
+                  <div class="grey--text ml-4">이 영화를 본 유저들: {{ view_users }}</div>
                 </v-layout>
               </v-card-text>
             </v-layout>
@@ -67,6 +68,10 @@ export default {
     viewCnt: {
       type: Number,
       default: 0
+    },
+    view_users: {
+      type: Array,
+      default: () => new Array()
     }
   },
   computed: {
